@@ -72,6 +72,7 @@ async function prcPay(data){
     '<div><span class="boxt">'+pAc+'</span><span class="boxs"></span></div>'+
     '<div class="boxr"><span class="boxt">'+pTp+pAm+'</span><span class="boxs">'+pTm+'</span></div>'
   }
-}
+  }
+  document.getElementById('shortinfo').style.display="block";
 }
 

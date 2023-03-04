@@ -3,11 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
   <link href="https://fonts.googleapis.com/css2?family=Fira+Mono:wght@400;500;700&display=swap" rel="stylesheet">
   <script src="./assets/wallet.minim.js"></script>
   <link rel="stylesheet" href=" ./assets/wallet.minim.css">
-  <title>Document</title>
+  <link rel="shortcut icon" href="./assets/minim.png" type="image/x-icon">
+  <title>minim Stellar Wallet</title>
 </head>
 <body>
   <header class="navt">
@@ -27,7 +28,12 @@
   <h1>Transactions</h1>
   <div id="payHistory">
   </div>
+  <div id="shortinfo" class="card" style="display:none;text-align: center;">
+    <span>It is a work in progress. All blockchain data (accounts, transactions, balance, etc.) are available on testnet only.</span><br><hr>
+    <span>Coin Price Data is provided by CoinGecko</span>
+  </div>
 </main>
+
   
   <div class="navbp">
     <div class="navbc">
