@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <script src="./assets/wallet.minim.js"></script>
+  <link rel="stylesheet" href=" ./assets/wallet.minim.css">
+  <title>Document</title>
+</head>
+<body>
+  <header class="navt">
+    <span class="navti">
+      <img id="profile" alt="" width="30px">
+    </span>
+    <span class="navtt">wallet.minim.cc</span>
+  </header>
+
+<main>
+  <div class="card">
+    <span class="cards">Total Balance</span>
+    <span id="tBalance" class="cardt"></span>
+    <span id="tValue" class="cards"></span>
+  </div>
+
+  <h1>Transactions</h1>
+  <div id="payHistory">
+  </div>
+</main>
+  
+  <div class="navbp">
+    <div class="navbc">
+      <div class="navb">
+        <div id="nbh" class="navbi">
+          ▣
+        </div>
+        <div id="nbr" class="navbi">
+          ▼
+        </div>
+        <div id="nbs" class="navbi">
+          ▲
+        </div>
+        <div id="nbo" class="navbi">
+          ◎
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+      
+
+  <script>
+    const addy = 'GCW7BE4UCPSFBIQ7V6AKGTJ3VV5AQX5MGBGVVPZRK3UPFFSMTDDC7J6T'
+    // account identicon
+    const iconURL = "https://id.lobstr.co/";
+    document.getElementById("profile").setAttribute("src",iconURL+addy+".png");
+    getAcc(addy);
+    getPy0(addy);
+  </script>
+  <script>
+    // Navigation Link
+    document.getElementById("nbh").onclick = function () {location.href = "./"};
+    document.getElementById("nbr").onclick = function () {location.href = "./"};
+    document.getElementById("nbs").onclick = function () {location.href = "./"};
+    document.getElementById("nbo").onclick = function () {location.href = "./"};
+  </script>
+</body>
+</html>

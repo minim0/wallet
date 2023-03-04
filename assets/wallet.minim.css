@@ -1,0 +1,173 @@
+:root {
+  --bg: #030303;
+  --fg: #FFFFFF;
+  --ac: #ACACAC;
+}
+.dark {
+  --bg0: #111111;
+  --fg0: #DADADA;
+  --ac0: #000000;
+  --ac1: #ACACAC;
+}
+* {
+  box-sizing: border-box;
+}
+html {
+  font-family: 'Fira Mono', monospace;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1;
+  background-color: #000000;
+}
+@media only screen and (max-width: 360px) {
+  html {
+    font-size: 12px;
+  }
+}
+body {
+  display: block;
+  width: 100%;
+  max-width: 480px;
+  min-height: 96vh;
+  margin: 0 auto;
+  padding: 0;
+  background-color: var(--bg);
+  color: var(--fg);
+  min-height: 98vh;
+  padding: 0.8em;
+}
+@media only screen and (min-width: 480px) {
+  body {
+    border-left: solid 1px var(--ac);
+    border-right: solid 1px var(--ac);
+  }
+}
+main {
+  display: block;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  margin-bottom: 50px;
+}
+.navt {
+  display: grid;
+  grid-template-columns: 40px auto 40px;
+  column-gap: 0;
+  width: 100%;
+  height: 50px;
+  margin: 0;
+  padding: 5px 0;
+  text-align: center;
+  color: var(--fg);
+}
+.navti {
+  width: 40px;
+  height: 40px;
+  padding: 5px;
+  background-color: var(--fg);
+}
+.navtt {
+  width: auto;
+  margin: 0 10px;
+  font-size: 20px;
+  line-height: 40px;
+  font-weight: 500;
+  text-align: left;
+}
+
+.card {
+  display: block;
+  width: 100%;
+  margin: 0.6em 0;
+  padding: 20px 10px;
+  border: solid 1px var(--fg);
+  color: var(--fg);
+  text-align: center;
+}
+.cards {
+  display: block;
+  font-size: 1em;
+  text-align: center;
+}
+.cardt {
+  display: block;
+  font-size: 3em;
+  font-weight: 400;
+  margin: 0.4em auto;
+}
+h1 {
+  display: block;
+  margin: 15px auto 5px auto;
+  font-size: 20px;
+  font-weight: 400;
+}
+.box {
+  display: grid;
+  width: 100%;
+  margin: 5px 0;
+  grid-template-columns: 40px auto auto;
+  column-gap: 5px;
+  padding: 5px;
+  border: solid 1px var(--fg);
+  color: var(--fg);
+}
+.boxr{
+  text-align: right;
+}
+.boxi {
+  display: block;
+  width: 2.5em;
+  height: 2.5em;
+  margin: 0;
+  padding: 0.3em;
+  background-color: var(--fg);
+}
+.boxt {
+  display: block;
+  font-size: 1.5em;
+  font-weight: 400;
+}
+.boxs {
+  display: block;
+  font-size: 0.8em;
+  font-weight: 400;
+}
+.navbp {
+  display: block;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+.navbc {
+  display: block;
+  width: auto;
+}
+@media only screen and (min-width: 480px) {
+  .navbc {
+    width: 480px;
+    margin: 0 auto;
+  }
+}
+.navb {
+  display: grid;
+  height: 50px;
+  grid-template-columns: 25% 25% 25% 25%;
+  column-gap: 0;
+  padding: 0;
+  text-align: center;
+  border-top: solid 1px var(--fg);
+  background-color: var(--bg);
+  color: var(--fg);
+}
+.navbi {
+  font-size: 30px;
+  cursor: pointer;
+  line-height: 50px;
+}
+.navbi:hover{
+  background-color: var(--fg);
+  color: var(--bg);
+}
