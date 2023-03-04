@@ -181,9 +181,9 @@ a {
 .row11 {
   display: grid;
   margin: 5px 0;
-  grid-template-columns: 49% 49%;
+  grid-template-columns: 29% 69%;
   column-gap: 2%;
-  padding: 0;
+  line-height: 20px;
 }
 .row020 {
   display: grid;

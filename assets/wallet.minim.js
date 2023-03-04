@@ -10,7 +10,7 @@ GCW7BE4UCPSFBIQ7V6AKGTJ3VV5AQX5MGBGVVPZRK3UPFFSMTDDC7J6T
 const bUrl = 'https://horizon-testnet.stellar.org/'
 const sAc0 = 'accounts/'
 const sTx0 = '/transactions?limit=20&order=desc'
-const sPy0 = '/payments?limit=20&order=desc' 
+const sPy0 = '/payments?limit=20&order=desc'
 const pURL = 'https://api.coingecko.com/api/v3/simple/price?ids=stellar&vs_currencies=usd'
 
 
@@ -49,6 +49,9 @@ async function prcPay(data){
   console.log(data);
   for (let i = 0; i < data.length; i++) {
     if(data[i].type==='payment'){
+    let pTx = data[i]._links.transaction.href;
+    let pMmo = await getMmo(pTx);
+    console.log(await pMmo)
     let pId = data[i].id;
     let pFr = data[i].from;
     let pTo = data[i].to;
@@ -69,10 +72,21 @@ async function prcPay(data){
     document.getElementById('payHistory').appendChild(nDiv);
     document.getElementById(pId).innerHTML =
     '<div class="boxi"><img src='+pIc+' width="100%"></div>'+
-    '<div><span class="boxt">'+pAc+'</span><span class="boxs"></span></div>'+
+    '<div><span class="boxt">'+pAc+'</span><span class="boxs">'+pMmo+'</span></div>'+
     '<div class="boxr"><span class="boxt">'+pTp+pAm+'</span><span class="boxs">'+pTm+'</span></div>'
   }
   }
   document.getElementById('shortinfo').style.display="block";
 }
 
+async function getMmo(txLink){
+  fRs = await fetch(txLink);
+  fDt = await fRs.json();
+  if (fDt.memo_type==='text'){
+    let memo = fDt.memo;
+    return memo;
+  } else {
+    let memo = 'no memo';
+    return memo;
+  }
+}
