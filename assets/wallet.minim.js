@@ -54,7 +54,7 @@ async function prcPay(data){
     let pTo = data[i].to;
     let pAm = (+data[i].amount).toFixed(2);
     let pTm = (data[i].created_at).slice(0,10);
-    if(pFr === addy){
+    if(pFr === pubKey){
       pTp = "-";
       pAc = pTo.slice(0,4)+'..'+pTo.slice(-4)
       pIc = 'https://id.lobstr.co/'+pTo+'.png';

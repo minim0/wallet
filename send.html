@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/stellar-sdk/10.4.1/stellar-sdk.js"></script>
+  <script src="./assets/wallet.minim.send.js"></script>
+  <link rel="stylesheet" href=" ./assets/wallet.minim.css">
+  <link rel="shortcut icon" href="./assets/minim.png" type="image/x-icon">
+  <title>minim Stellar Wallet</title>
+</head>
+<body>
+  <header class="navt">
+    <span class="navti">
+      <img id="profile" alt="" width="30px">
+    </span>
+    <span class="navtt">minim wallet</span>
+  </header>
+
+<main>
+  <br><br><br>
+  <span class="formt">Destination:</span>
+  <div class="card tac" id="qrRes" onclick="prepareCam();">
+    <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" fill="currentColor" class="bi bi-qr-code-scan" viewBox="0 0 16 16">
+      <path d="M0 .5A.5.5 0 0 1 .5 0h3a.5.5 0 0 1 0 1H1v2.5a.5.5 0 0 1-1 0v-3Zm12 0a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0V1h-2.5a.5.5 0 0 1-.5-.5ZM.5 12a.5.5 0 0 1 .5.5V15h2.5a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5v-3a.5.5 0 0 1 .5-.5Zm15 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1 0-1H15v-2.5a.5.5 0 0 1 .5-.5ZM4 4h1v1H4V4Z"/>
+      <path d="M7 2H2v5h5V2ZM3 3h3v3H3V3Zm2 8H4v1h1v-1Z"/>
+      <path d="M7 9H2v5h5V9Zm-4 1h3v3H3v-3Zm8-6h1v1h-1V4Z"/>
+      <path d="M9 2h5v5H9V2Zm1 1v3h3V3h-3ZM8 8v2h1v1H8v1h2v-2h1v2h1v-1h2v-1h-3V8H8Zm2 2H9V9h1v1Zm4 2h-1v1h-2v1h3v-2Zm-4 2v-1H8v1h2Z"/>
+      <path d="M12 9h2V8h-2v1Z"/>
+    </svg>
+  </div>
+  <div id="videocontainer" style="display:none">
+    <video id="qrvideo" class="box" ></video>
+    <div id="overlay" class=""></div>
+    <button onclick="cleanCam();">Stop Scanning</button>
+  </div>
+  <textarea name="" id="destInp" rows="2" placeholder="G..." onchange="chkAdd()"></textarea>
+  <div id="chkDes" class="card sml">Checking Destination Account...</div>
+
+  <button id="addCon" class="hide" onclick="nextStep('addCon','sendAmount')">Continue</button>
+  <input id="sendAmount" type="number" class="hide" onchange="nextStep('addCon','amtCon')">
+  <button id="amtCon" class="hide" onclick="nextStep('amtCon','sendMemo')">Continue</button>
+  <input id="sendMemo" class="hide" type="text" onchange="nextStep('amtCon','mmoCon')">
+  <button id="mmoCon" class="hide">Continue</button>
+
+
+
+
+
+
+
+</main>
+
+  
+<div class="navbp"><div class="navbc"><div class="navb">
+  <a href="./"><div class="navbi">▣</div></a>
+  <a href="./receive"><div class="navbi">▼</div></a>
+  <a href="./send"><div class="navbi">▲</div></a>
+  <a href="./setting"><div class="navbi">◎</div></a>
+</div></div></div>
+
+
+      
+
+
+  <script>
+    const pubKey = 'GCW7BE4UCPSFBIQ7V6AKGTJ3VV5AQX5MGBGVVPZRK3UPFFSMTDDC7J6T';
+    const secKey = 'SA5YOAZFHA4KV5CJ7IUX7BPO7YDZTJAOUCSXMYWBGQDEHXFOZLLW3NEM';
+    const keyPair = StellarSdk.Keypair.fromSecret(secKey);
+    const server = new StellarSdk.Server("https://horizon-testnet.stellar.org");
+    // account identicon
+    const iconURL = "https://id.lobstr.co/";
+    document.getElementById("profile").setAttribute("src",iconURL+pubKey+".png");
+  </script>
+  <script src="./assets/qr-scanner.umd.min.js"></script>
+  <script>
+
+    let camPrev = document.getElementById("qrvideo");
+    
+    async function prepareCam(){
+      document.getElementById("videocontainer").style.display = "block";
+      document.getElementById("destInp").style.display = "block";
+      document.getElementById("qrRes").style.display = "none";
+      setTimeout(scanCam,500)
+    }
+    async function cleanCam(){
+      document.getElementById("videocontainer").style.display = "none";
+      qrScanner.stop();
+      chkAdd();
+    }
+
+
+    async function scanCam(){
+      qrScanner.start()
+    }
+    async function prtRes(res0){
+    console.log('decoded qr code:', res0.data);
+    document.getElementById("destInp").value = res0.data;
+    //qrScanner.stop();
+  }
+    const qrScanner = new QrScanner(
+      camPrev,
+      result => setTimeout(prtRes,1000,result),
+      {highlightScanRegion: true, maxScansPerSecond:1},
+    );
+
+  </script>
+</body>
+</html>

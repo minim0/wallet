@@ -15,7 +15,7 @@
     <span class="navti">
       <img id="profile" alt="" width="30px">
     </span>
-    <span class="navtt">GCW7..7J6T</span>
+    <span class="navtt">wallet.minim.cc</span>
   </header>
 
 <main>
@@ -35,20 +35,29 @@
 </main>
 
   
-  <div class="navbp"><div class="navbc"><div class="navb">
-        <a href="./"><div class="navbi">▣</div></a>
-        <a href="./receive"><div class="navbi">▼</div></a>
-        <a href="./send"><div class="navbi">▲</div></a>
-        <a href="./setting"><div class="navbi">◎</div></a>
-  </div></div></div>
+<div class="navbp"><div class="navbc"><div class="navb">
+  <a href="./"><div class="navbi">▣</div></a>
+  <a href="./receive"><div class="navbi">▼</div></a>
+  <a href="./send"><div class="navbi">▲</div></a>
+  <a href="./setting"><div class="navbi">◎</div></a>
+</div></div></div>
 
+
+      
   <script>
-    const pubKey = 'GCW7BE4UCPSFBIQ7V6AKGTJ3VV5AQX5MGBGVVPZRK3UPFFSMTDDC7J6T'
+    // Navigation
+    document.getElementById("nbh").onclick = function () {location.href = "./"};
+    document.getElementById("nbr").onclick = function () {location.href = "./"};
+    document.getElementById("nbs").onclick = function () {location.href = "/send"};
+    document.getElementById("nbo").onclick = function () {location.href = "./"};
+  </script>
+  <script>
+    const addy = 'GCW7BE4UCPSFBIQ7V6AKGTJ3VV5AQX5MGBGVVPZRK3UPFFSMTDDC7J6T'
     // account identicon
     const iconURL = "https://id.lobstr.co/";
-    document.getElementById("profile").setAttribute("src",iconURL+pubKey+".png");
-    getAcc(pubKey);
-    getPy0(pubKey);
+    document.getElementById("profile").setAttribute("src",iconURL+addy+".png");
+    getAcc(addy);
+    getPy0(addy);
   </script>
 </body>
 </html>
