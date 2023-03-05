@@ -1,7 +1,8 @@
 :root {
-  --bg: #030303;
-  --fg: #FFFFFF;
-  --ac: #ACACAC;
+  --bg: #DEDEDE;
+  --fg: #030303;
+  --ac: #EEEEEE;
+  --im: #ffffff;
 }
 .dark {
   --bg0: #111111;
@@ -14,7 +15,7 @@
   word-break: break-all;
 }
 html {
-  font-family: 'Fira Mono', monospace;
+  font-family: 'Roboto Mono', monospace;
   font-size: 15px;
   font-weight: 400;
   line-height: 1;
@@ -66,7 +67,8 @@ main {
   width: 40px;
   height: 40px;
   padding: 5px;
-  background-color: var(--fg);
+  background-color: var(--ac);
+  border-radius: 2px;
 }
 .navtt {
   width: auto;
@@ -82,8 +84,9 @@ main {
   width: 100%;
   margin: 0.6em 0;
   padding: 5px;
-  border: solid 1px var(--fg);
+  background-color: var(--ac);
   color: var(--fg);
+  border-radius: 5px;
 }
 .cards {
   display: block;
@@ -111,8 +114,9 @@ h1 {
   grid-template-columns: 40px auto auto;
   column-gap: 5px;
   padding: 5px;
-  border: solid 1px var(--fg);
+  background-color: var(--ac);
   color: var(--fg);
+  border-radius: 2px;
 }
 .boxr{
   text-align: right;
@@ -123,7 +127,8 @@ h1 {
   height: 2.5em;
   margin: 0;
   padding: 0.3em;
-  background-color: var(--fg);
+  background-color: #ffffff;
+  border-radius: 2px;
 }
 .boxt {
   display: block;
